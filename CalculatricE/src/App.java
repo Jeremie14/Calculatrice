@@ -27,14 +27,18 @@ public class App
 
         JButton modulo = new JButton("%");
         modulo.setBounds(240, 100, 100, 50);
+        modulo.setBackground(Color.ORANGE);
+        modulo.addActionListener(e -> {ecran.setText(ecran.getText() + "%");});
 
         JButton division = new JButton("/");
         division.setBounds(350, 100, 100, 50);
+        division.setBackground(Color.ORANGE);
+        division.addActionListener(e -> {ecran.setText(ecran.getText() + "/");});
 
         JButton button1 = new JButton("1");
         button1.setBounds(20, 280, 100, 50);
         button1.setBackground(Color.ORANGE);
-        button1.addActionListener(e -> {ecran.setText(ecran.getText() + "1");});
+        button1.addActionListener(e -> {ecran.setText(ecran.getText() + "2");});
 
         JButton button2 = new JButton("2");
         button2.setBounds(130, 280, 100, 50);
@@ -63,27 +67,43 @@ public class App
 
         JButton button7 = new JButton("7");
         button7.setBounds(20, 160, 100, 50);
+        button7.setBackground(Color.ORANGE);
+        button7.addActionListener(e -> {ecran.setText(ecran.getText() + "7");});
 
         JButton button8 = new JButton("8");
         button8.setBounds(130, 160, 100, 50);
+        button8.setBackground(Color.ORANGE);
+        button8.addActionListener(e -> {ecran.setText(ecran.getText() + "8");});
 
         JButton button9 = new JButton("9");
         button9.setBounds(240, 160, 100, 50);
+        button9.setBackground(Color.ORANGE);
+        button9.addActionListener(e -> {ecran.setText(ecran.getText() + "9");});
 
         JButton button0 = new JButton("0");
         button0.setBounds(130, 340, 100, 50);
+        button0.setBackground(Color.ORANGE);
+        button0.addActionListener(e -> {ecran.setText(ecran.getText() + "0");});
 
         JButton virgule = new JButton(",");
         virgule.setBounds(240, 340, 100, 50);
+        virgule.setBackground(Color.ORANGE);
+        virgule.addActionListener(e -> {ecran.setText(ecran.getText() + ",");});
 
         JButton multiplication = new JButton("x");
         multiplication.setBounds(350, 160, 100, 50);
+        multiplication.setBackground(Color.ORANGE);
+        multiplication.addActionListener(e -> {ecran.setText(ecran.getText() + "x");});
 
         JButton soustraction = new JButton("-");
         soustraction.setBounds(350, 220, 100, 50);
+        soustraction.setBackground(Color.ORANGE);
+        soustraction.addActionListener(e -> {ecran.setText(ecran.getText() + "-");});
 
         JButton addition = new JButton("+");
         addition.setBounds(350, 280, 100, 50);
+        addition.setBackground(Color.ORANGE);
+        addition.addActionListener(e -> {ecran.setText(ecran.getText() + "+");});
 
         JButton egalite = new JButton("=");
         egalite.setBounds(350, 340, 100, 50);
