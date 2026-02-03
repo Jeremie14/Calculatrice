@@ -17,45 +17,74 @@ public class App
         ecran.setEditable(false);
         ecran.setFont(new Font("Arial", Font.BOLD, 20));
 
+
         //Création des boutons
         JButton deleteOne = new JButton("Erase");
         deleteOne.setBounds(20, 100, 100, 50);
+
         JButton deleteAll = new JButton("Clear");
         deleteAll.setBounds(130, 100, 100, 50);
+
         JButton modulo = new JButton("%");
         modulo.setBounds(240, 100, 100, 50);
+
         JButton division = new JButton("/");
         division.setBounds(350, 100, 100, 50);
+
         JButton button1 = new JButton("1");
         button1.setBounds(20, 280, 100, 50);
         button1.setBackground(Color.ORANGE);
         button1.addActionListener(e -> {ecran.setText(ecran.getText() + "1");});
+
         JButton button2 = new JButton("2");
         button2.setBounds(130, 280, 100, 50);
+        button2.setBackground(Color.ORANGE);
+        button2.addActionListener(e -> {ecran.setText(ecran.getText() + "2");});
+
         JButton button3 = new JButton("3");
         button3.setBounds(240, 280, 100, 50);
+        button3.setBackground(Color.ORANGE);
+        button3.addActionListener(e -> {ecran.setText(ecran.getText() + "3");});
+
         JButton button4 = new JButton("4");
         button4.setBounds(20, 220, 100, 50);
+        button4.setBackground(Color.ORANGE);
+        button4.addActionListener(e -> {ecran.setText(ecran.getText() + "4");});        
+
         JButton button5 = new JButton("5");
         button5.setBounds(130, 220, 100, 50);
+        button5.setBackground(Color.ORANGE);
+        button5.addActionListener(e -> {ecran.setText(ecran.getText() + "5");});
+
         JButton button6 = new JButton("6");
         button6.setBounds(240, 220, 100, 50);
+        button6.setBackground(Color.ORANGE);
+        button6.addActionListener(e -> {ecran.setText(ecran.getText() + "6");});
+
         JButton button7 = new JButton("7");
         button7.setBounds(20, 160, 100, 50);
+
         JButton button8 = new JButton("8");
         button8.setBounds(130, 160, 100, 50);
+
         JButton button9 = new JButton("9");
         button9.setBounds(240, 160, 100, 50);
+
         JButton button0 = new JButton("0");
         button0.setBounds(130, 340, 100, 50);
+
         JButton virgule = new JButton(",");
         virgule.setBounds(240, 340, 100, 50);
+
         JButton multiplication = new JButton("x");
         multiplication.setBounds(350, 160, 100, 50);
+
         JButton soustraction = new JButton("-");
         soustraction.setBounds(350, 220, 100, 50);
+
         JButton addition = new JButton("+");
         addition.setBounds(350, 280, 100, 50);
+
         JButton egalite = new JButton("=");
         egalite.setBounds(350, 340, 100, 50);
 
@@ -87,9 +116,12 @@ public class App
         frame.add(virgule);
         frame.add(ecran);
 
+
         //L'icone de l'application
         ImageIcon image = new ImageIcon("calculatrice.png");
         frame.setIconImage(image.getImage());
+
+
         //Couleur du fond d'écran de la calculatrice
         frame.getContentPane().setBackground(new Color(64, 64, 64)); // rgb color
     }
