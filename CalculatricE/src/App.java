@@ -7,6 +7,10 @@ import java.awt.Font;
 /*import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;*/
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
 public class App
 {
     public static void main(String[] args)
@@ -107,6 +111,14 @@ public class App
 
         JButton egalite = new JButton("=");
         egalite.setBounds(350, 340, 100, 50);
+        egalite.setBackground(Color.ORANGE);
+        egalite.addActionListener(e -> {
+        try {
+            egaliteCalcul(ecran.getText());
+        } catch (ScriptException ex) {
+            ex.printStackTrace();
+        }
+    });
 
         //Affichage de la calculatrice
         JFrame frame = new JFrame();
@@ -144,5 +156,11 @@ public class App
 
         //Couleur du fond d'écran de la calculatrice
         frame.getContentPane().setBackground(new Color(64, 64, 64)); // rgb color
+    }
+
+    public static String egaliteCalcul(String str) throws ScriptException {
+        ScriptEngineManager manager = new ScriptEngineManager();
+        ScriptEngine engine = manager.getEngineByName("JavaScript");
+        return engine.eval(str).toString();
     }
 }
