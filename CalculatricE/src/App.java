@@ -2,17 +2,20 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JButton;
-import javax.swing.JPanel;
-//import java.awt.event.ActionListener;
+import javax.swing.JTextField;
+import java.awt.Font;
+/*import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;*/
 
-public class App 
+public class App
 {
     public static void main(String[] args)
     {
-        //Création du panel
-        JPanel panel = new JPanel();
-        panel.setBackground(Color.white);
-        panel.setBounds(80, 20, 320, 50);
+        //Création de l'afficheur de texte
+        JTextField ecran = new JTextField();
+        ecran.setBounds(80, 20, 320, 50);
+        ecran.setEditable(false);
+        ecran.setFont(new Font("Arial", Font.BOLD, 20));
 
         //Création des boutons
         JButton deleteOne = new JButton("Erase");
@@ -26,6 +29,7 @@ public class App
         JButton button1 = new JButton("1");
         button1.setBounds(20, 280, 100, 50);
         button1.setBackground(Color.ORANGE);
+        button1.addActionListener(e -> {ecran.setText(ecran.getText() + "1");});
         JButton button2 = new JButton("2");
         button2.setBounds(130, 280, 100, 50);
         JButton button3 = new JButton("3");
@@ -81,7 +85,7 @@ public class App
         frame.add(addition);
         frame.add(egalite);
         frame.add(virgule);
-        frame.add(panel);
+        frame.add(ecran);
 
         //L'icone de l'application
         ImageIcon image = new ImageIcon("calculatrice.png");
