@@ -6,6 +6,7 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /*import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -132,7 +133,43 @@ public class App
         JButton egalite = new JButton("=");
         egalite.setBounds(350, 340, 100, 50);
         egalite.setBackground(Color.ORANGE);
-        //egalite.addActionListener();
+        egalite.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                String storage = ecran.getText();
+
+                ArrayList<Integer> numbers = new ArrayList<>();
+                ArrayList<String> signs = new ArrayList<>();
+
+                for (char c : storage.toCharArray()) {
+                    if (Character.isDigit(c)) {
+                        numbers.add(Character.getNumericValue(c));
+                    } else {
+                        signs.add(String.valueOf(c));
+                    }
+                }
+
+                int result = 0;
+
+                switch (signs.get(0)) {
+                    case "+":
+                        result = numbers.get(0) + numbers.get(1);
+                        break;
+                    case "-":
+                        result = numbers.get(0) - numbers.get(1);
+                        break;
+                    case "x":
+                        result = numbers.get(0) * numbers.get(1);
+                        break;
+                    case "/":
+                        result = numbers.get(0) / numbers.get(1);
+                        break;
+                }
+
+                ecran.setText(String.valueOf(result));
+            }
+        });
 
         //Affichage de la calculatrice
         JFrame frame = new JFrame();
@@ -170,8 +207,5 @@ public class App
 
         //Couleur du fond d'écran de la calculatrice
         frame.getContentPane().setBackground(new Color(64, 64, 64)); // rgb color
-    }
-    public static void boutonEffacer(){
-
     }
 }
