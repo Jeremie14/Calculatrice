@@ -8,9 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-/*import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;*/
+
 
 public class App
 {
@@ -25,6 +23,7 @@ public class App
 
         //Création des boutons
         JButton deleteOne = new JButton("Erase");
+        deleteOne.setFont(new Font("Arial", Font.BOLD, 18));
         deleteOne.setBounds(20, 100, 100, 50);
         deleteOne.setBackground(Color.ORANGE);
         deleteOne.addActionListener(new ActionListener() {
@@ -41,6 +40,7 @@ public class App
         });
 
         JButton deleteAll = new JButton("Clear");
+        deleteAll.setFont(new Font("Arial", Font.BOLD, 18));
         deleteAll.setBounds(130, 100, 100, 50);
         deleteAll.setBackground(Color.ORANGE);
         deleteAll.addActionListener(new ActionListener() {
@@ -51,16 +51,19 @@ public class App
         });
 
         JButton modulo = new JButton("%");
+        modulo.setFont(new Font("Arial", Font.BOLD, 18));
         modulo.setBounds(240, 100, 100, 50);
         modulo.setBackground(Color.ORANGE);
         modulo.addActionListener(e -> {ecran.setText(ecran.getText() + "%");});
 
         JButton division = new JButton("/");
+        division.setFont(new Font("Arial", Font.BOLD, 18));
         division.setBounds(350, 100, 100, 50);
         division.setBackground(Color.ORANGE);
         division.addActionListener(e -> {ecran.setText(ecran.getText() + "/");});
 
         JButton button1 = new JButton("1");
+        button1.setFont(new Font("Arial", Font.BOLD, 18));
         button1.setBounds(20, 280, 100, 50);
         button1.setBackground(Color.ORANGE);
         button1.addActionListener(e -> {ecran.setText(ecran.getText() + "2");});
