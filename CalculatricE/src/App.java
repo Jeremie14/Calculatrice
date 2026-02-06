@@ -1,8 +1,13 @@
 import java.awt.Color;
+
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,10 +24,10 @@ public class App
         ecran.setBounds(80, 20, 320, 50);
         ecran.setEditable(false);
         ecran.setFont(new Font("Arial", Font.BOLD, 20));
-
+        ecran.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
         //Création des boutons
-        JButton deleteOne = new JButton("Erase");
+        JButton deleteOne = new JButton("CE");
         deleteOne.setFont(new Font("Arial", Font.BOLD, 18));
         deleteOne.setBounds(20, 100, 100, 50);
         deleteOne.setBackground(Color.ORANGE);
@@ -39,7 +44,7 @@ public class App
             }
         });
 
-        JButton deleteAll = new JButton("Clear");
+        JButton deleteAll = new JButton("C");
         deleteAll.setFont(new Font("Arial", Font.BOLD, 18));
         deleteAll.setBounds(130, 100, 100, 50);
         deleteAll.setBackground(Color.ORANGE);
@@ -69,71 +74,88 @@ public class App
         button1.addActionListener(e -> {ecran.setText(ecran.getText() + "2");});
 
         JButton button2 = new JButton("2");
+        button2.setFont(new Font("Arial", Font.BOLD, 18));
         button2.setBounds(130, 280, 100, 50);
         button2.setBackground(Color.ORANGE);
         button2.addActionListener(e -> {ecran.setText(ecran.getText() + "2");});
 
         JButton button3 = new JButton("3");
+        button3.setFont(new Font("Arial", Font.BOLD, 18));
         button3.setBounds(240, 280, 100, 50);
         button3.setBackground(Color.ORANGE);
         button3.addActionListener(e -> {ecran.setText(ecran.getText() + "3");});
 
         JButton button4 = new JButton("4");
+        button4.setFont(new Font("Arial", Font.BOLD, 18));
         button4.setBounds(20, 220, 100, 50);
         button4.setBackground(Color.ORANGE);
         button4.addActionListener(e -> {ecran.setText(ecran.getText() + "4");});        
 
         JButton button5 = new JButton("5");
+        button5.setFont(new Font("Arial", Font.BOLD, 18));
         button5.setBounds(130, 220, 100, 50);
         button5.setBackground(Color.ORANGE);
         button5.addActionListener(e -> {ecran.setText(ecran.getText() + "5");});
 
         JButton button6 = new JButton("6");
+        button6.setFont(new Font("Arial", Font.BOLD, 18));
         button6.setBounds(240, 220, 100, 50);
         button6.setBackground(Color.ORANGE);
         button6.addActionListener(e -> {ecran.setText(ecran.getText() + "6");});
 
         JButton button7 = new JButton("7");
+        button7.setFont(new Font("Arial", Font.BOLD, 18));
         button7.setBounds(20, 160, 100, 50);
         button7.setBackground(Color.ORANGE);
         button7.addActionListener(e -> {ecran.setText(ecran.getText() + "7");});
 
         JButton button8 = new JButton("8");
+        button8.setFont(new Font("Arial", Font.BOLD, 18));
         button8.setBounds(130, 160, 100, 50);
         button8.setBackground(Color.ORANGE);
         button8.addActionListener(e -> {ecran.setText(ecran.getText() + "8");});
 
         JButton button9 = new JButton("9");
+        button9.setFont(new Font("Arial", Font.BOLD, 18));
         button9.setBounds(240, 160, 100, 50);
         button9.setBackground(Color.ORANGE);
         button9.addActionListener(e -> {ecran.setText(ecran.getText() + "9");});
 
         JButton button0 = new JButton("0");
+        Border line = BorderFactory.createLineBorder(Color.GRAY, 4);
+        Border padding = BorderFactory.createEmptyBorder(5, 8, 5, 8);
+        button0.setBorder(BorderFactory.createCompoundBorder(line, padding));
+        button0.setFont(new Font("Arial", Font.BOLD, 18));
         button0.setBounds(130, 340, 100, 50);
         button0.setBackground(Color.ORANGE);
         button0.addActionListener(e -> {ecran.setText(ecran.getText() + "0");});
 
         JButton virgule = new JButton(",");
+        virgule.setFont(new Font("Arial", Font.BOLD, 18));
         virgule.setBounds(240, 340, 100, 50);
         virgule.setBackground(Color.ORANGE);
         virgule.addActionListener(e -> {ecran.setText(ecran.getText() + ",");});
 
         JButton multiplication = new JButton("x");
+        multiplication.setFont(new Font("Arial", Font.BOLD, 18));
         multiplication.setBounds(350, 160, 100, 50);
         multiplication.setBackground(Color.ORANGE);
         multiplication.addActionListener(e -> {ecran.setText(ecran.getText() + "x");});
 
         JButton soustraction = new JButton("-");
+        soustraction.setFont(new Font("Arial", Font.BOLD, 18));
         soustraction.setBounds(350, 220, 100, 50);
         soustraction.setBackground(Color.ORANGE);
         soustraction.addActionListener(e -> {ecran.setText(ecran.getText() + "-");});
 
         JButton addition = new JButton("+");
+        addition.setFont(new Font("Arial", Font.BOLD, 18));
         addition.setBounds(350, 280, 100, 50);
         addition.setBackground(Color.ORANGE);
         addition.addActionListener(e -> {ecran.setText(ecran.getText() + "+");});
 
         JButton egalite = new JButton("=");
+        egalite.setFont(new Font("Arial", Font.BOLD, 18));
         egalite.setBounds(350, 340, 100, 50);
         egalite.setBackground(Color.ORANGE);
         egalite.addActionListener(new ActionListener() {
