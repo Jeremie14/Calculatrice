@@ -1,18 +1,13 @@
 import java.awt.Color;
-
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
-
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
 
 
 public class App
@@ -158,44 +153,12 @@ public class App
         egalite.setFont(new Font("Arial", Font.BOLD, 18));
         egalite.setBounds(350, 340, 100, 50);
         egalite.setBackground(new Color(255, 128, 0));
-        egalite.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                String storage = ecran.getText();
-
-                ArrayList<Integer> numbers = new ArrayList<>();
-                ArrayList<String> signs = new ArrayList<>();
-
-                for (char c : storage.toCharArray()) {
-                    if (Character.isDigit(c)) {
-                        numbers.add(Character.getNumericValue(c));
-                    } else {
-                        signs.add(String.valueOf(c));
-                    }
-                }
-
-                int result = 0;
-
-                switch (signs.get(0)) {
-                    case "+":
-                        result = numbers.get(0) + numbers.get(1);
-                        break;
-                    case "-":
-                        result = numbers.get(0) - numbers.get(1);
-                        break;
-                    case "x":
-                        result = numbers.get(0) * numbers.get(1);
-                        break;
-                    case "/":
-                        result = numbers.get(0) / numbers.get(1);
-                        break;
-                    case "%":
-                        result = numbers.get(0) % numbers.get(1);
-                        break;
-                }
-
+        egalite.addActionListener(e -> {
+            try {
+                double result = BoutonEgalite.evaluate(ecran.getText());
                 ecran.setText(String.valueOf(result));
+            } catch (Exception ex) {
+                ecran.setText("Error");
             }
         });
 
@@ -205,7 +168,6 @@ public class App
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
         frame.setSize(480, 450);
-        frame.setVisible(true);
         frame.add(button1);
         frame.add(button2);
         frame.add(button3);
@@ -235,5 +197,7 @@ public class App
 
         //Couleur du fond d'écran de la calculatrice
         frame.getContentPane().setBackground(new Color(0, 0, 0)); // rgb color
+
+        frame.setVisible(true);
     }
 }
