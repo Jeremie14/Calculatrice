@@ -19,7 +19,7 @@ public class App
         ecran.setBounds(80, 20, 320, 50);
         ecran.setEditable(false);
         ecran.setFont(new Font("Arial", Font.BOLD, 20));
-        ecran.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        ecran.setBorder(BorderFactory.createLineBorder(Color.ORANGE, 2));
 
         //Création des boutons
         JButton deleteOne = new JButton("CE");
@@ -117,9 +117,6 @@ public class App
         button9.addActionListener(e -> {ecran.setText(ecran.getText() + "9");});
 
         JButton button0 = new JButton("0");
-        Border line = BorderFactory.createLineBorder(Color.WHITE, 2);
-        Border padding = BorderFactory.createEmptyBorder(5, 8, 5, 8);
-        button0.setBorder(BorderFactory.createCompoundBorder(line, padding));
         button0.setFont(new Font("Arial", Font.BOLD, 18));
         button0.setBounds(130, 340, 100, 50);
         button0.setBackground(new Color(255, 128, 0));

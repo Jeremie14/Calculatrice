@@ -6,7 +6,6 @@ public class BoutonEgalite {
         return evalPostfix(postfix);
     }
 
-    /* ================= INFIX → POSTFIX ================= */
 
     private static List<String> toPostfix(String expr) {
         List<String> output = new ArrayList<>();
@@ -15,13 +14,11 @@ public class BoutonEgalite {
         for (int i = 0; i < expr.length(); ) {
             char c = expr.charAt(i);
 
-            // Skip spaces
             if (Character.isWhitespace(c)) {
                 i++;
                 continue;
             }
 
-            // Number (decimal + unary minus)
             if (Character.isDigit(c) || c == '.' ||
                (c == '-' && (i == 0 || "+-*/(".indexOf(expr.charAt(i - 1)) >= 0))) {
 
@@ -38,7 +35,6 @@ public class BoutonEgalite {
                 continue;
             }
 
-            // Operator
             if ("+-*/".indexOf(c) >= 0) {
                 while (!ops.isEmpty() && precedence(ops.peek()) >= precedence(c)) {
                     output.add(String.valueOf(ops.pop()));
@@ -48,19 +44,17 @@ public class BoutonEgalite {
                 continue;
             }
 
-            // Left parenthesis
             if (c == '(') {
                 ops.push(c);
                 i++;
                 continue;
             }
 
-            // Right parenthesis
             if (c == ')') {
                 while (!ops.isEmpty() && ops.peek() != '(') {
                     output.add(String.valueOf(ops.pop()));
                 }
-                ops.pop(); // remove '('
+                ops.pop();
                 i++;
                 continue;
             }
@@ -80,8 +74,6 @@ public class BoutonEgalite {
         if (op == '*' || op == '/') return 2;
         return 0;
     }
-
-    /* ================= POSTFIX EVALUATION ================= */
 
     private static double evalPostfix(List<String> postfix) {
         Stack<Double> stack = new Stack<>();
