@@ -135,7 +135,7 @@ public class App
         multiplication.setFont(new Font("Arial", Font.BOLD, 18));
         multiplication.setBounds(350, 160, 100, 50);
         multiplication.setBackground(new Color(255, 128, 0));
-        multiplication.addActionListener(e -> {ecran.setText(ecran.getText() + "x");});
+        multiplication.addActionListener(e -> {ecran.setText(ecran.getText() + "*");});
 
         JButton soustraction = new JButton("-");
         soustraction.setFont(new Font("Arial", Font.BOLD, 18));
