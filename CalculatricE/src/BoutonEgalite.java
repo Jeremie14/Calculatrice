@@ -20,7 +20,7 @@ public class BoutonEgalite {
             }
 
             if (Character.isDigit(c) || c == '.' ||
-               (c == '-' && (i == 0 || "+-*/(".indexOf(expr.charAt(i - 1)) >= 0))) {
+               (c == '-' && (i == 0 || "+-*/%(".indexOf(expr.charAt(i - 1)) >= 0))) {
 
                 StringBuilder num = new StringBuilder();
                 num.append(c);
@@ -35,7 +35,7 @@ public class BoutonEgalite {
                 continue;
             }
 
-            if ("+-*/".indexOf(c) >= 0) {
+            if ("+-*/%".indexOf(c) >= 0) {
                 while (!ops.isEmpty() && precedence(ops.peek()) >= precedence(c)) {
                     output.add(String.valueOf(ops.pop()));
                 }
@@ -71,7 +71,7 @@ public class BoutonEgalite {
 
     private static int precedence(char op) {
         if (op == '+' || op == '-') return 1;
-        if (op == '*' || op == '/') return 2;
+        if (op == '*' || op == '/' || op == '%') return 2;
         return 0;
     }
 
@@ -90,6 +90,7 @@ public class BoutonEgalite {
                     case '-' -> stack.push(a - b);
                     case '*' -> stack.push(a * b);
                     case '/' -> stack.push(a / b);
+                    case '%' -> stack.push(a % b);
                 }
             }
         }
