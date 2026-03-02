@@ -152,7 +152,8 @@ public class App
         egalite.setBackground(new Color(255, 128, 0));
         egalite.addActionListener(e -> {
             try {
-                double result = BoutonEgalite.evaluate(ecran.getText());
+                BoutonEgalite bouton = new BoutonEgalite(ecran);
+                int result = bouton.method();
                 ecran.setText(String.valueOf(result));
             } catch (Exception ex) {
                 ecran.setText("Error");

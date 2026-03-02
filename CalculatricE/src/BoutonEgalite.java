@@ -1,104 +1,46 @@
 import java.util.*;
+import javax.swing.JTextField;
 
 public class BoutonEgalite {
-        public static double evaluate(String expr) {
-        List<String> postfix = toPostfix(expr);
-        return evalPostfix(postfix);
+
+    private JTextField ecran;
+
+    public BoutonEgalite(JTextField ecran) {
+        this.ecran = ecran;
     }
 
+    public Integer method() {
+        String text = ecran.getText();
 
-    private static List<String> toPostfix(String expr) {
-        List<String> output = new ArrayList<>();
-        Stack<Character> ops = new Stack<>();
+        char operator = ' ';
+        int index = -1;
 
-        for (int i = 0; i < expr.length(); ) {
-            char c = expr.charAt(i);
-
-            if (Character.isWhitespace(c)) {
-                i++;
-                continue;
-            }
-
-            if (Character.isDigit(c) || c == '.' ||
-               (c == '-' && (i == 0 || "+-*/%(".indexOf(expr.charAt(i - 1)) >= 0))) {
-
-                StringBuilder num = new StringBuilder();
-                num.append(c);
-                i++;
-
-                while (i < expr.length() &&
-                      (Character.isDigit(expr.charAt(i)) || expr.charAt(i) == '.')) {
-                    num.append(expr.charAt(i++));
-                }
-
-                output.add(num.toString());
-                continue;
-            }
-
-            if ("+-*/%".indexOf(c) >= 0) {
-                while (!ops.isEmpty() && precedence(ops.peek()) >= precedence(c)) {
-                    output.add(String.valueOf(ops.pop()));
-                }
-                ops.push(c);
-                i++;
-                continue;
-            }
-
-            if (c == '(') {
-                ops.push(c);
-                i++;
-                continue;
-            }
-
-            if (c == ')') {
-                while (!ops.isEmpty() && ops.peek() != '(') {
-                    output.add(String.valueOf(ops.pop()));
-                }
-                ops.pop();
-                i++;
-                continue;
-            }
-
-            throw new IllegalArgumentException("Invalid character");
-        }
-
-        while (!ops.isEmpty()) {
-            output.add(String.valueOf(ops.pop()));
-        }
-
-        return output;
-    }
-
-    private static int precedence(char op) {
-        if (op == '+' || op == '-') return 1;
-        if (op == '*' || op == '/' || op == '%') return 2;
-        return 0;
-    }
-
-    private static double evalPostfix(List<String> postfix) {
-        Stack<Double> stack = new Stack<>();
-
-        for (String token : postfix) {
-            if (isNumber(token)) {
-                stack.push(Double.parseDouble(token));
-            } else {
-                double b = stack.pop();
-                double a = stack.pop();
-
-                switch (token.charAt(0)) {
-                    case '+' -> stack.push(a + b);
-                    case '-' -> stack.push(a - b);
-                    case '*' -> stack.push(a * b);
-                    case '/' -> stack.push(a / b);
-                    case '%' -> stack.push(a % b);
-                }
+        for (int i = 0; i < text.length(); i++) {
+            char c = text.charAt(i);
+            if (c == '+' || c == '-' || c == '*' || c == '/' || c == '%') {
+                operator = c;
+                index = i;
+                break;
             }
         }
 
-        return stack.pop();
-    }
+        int number1 = Integer.parseInt(text.substring(0, index));
+        int number2 = Integer.parseInt(text.substring(index + 1));
 
-    private static boolean isNumber(String s) {
-        return Character.isDigit(s.charAt(0)) || s.charAt(0) == '-' || s.charAt(0) == '.';
-    }    
+        switch (operator) {
+            case '+':
+                return number1 + number2;
+            case '-':
+                return number1 - number2;
+            case '*':
+                return number1 * number2;
+            case '/':
+                return number1 / number2;
+            case '%':
+                return number1 % number2;
+            default:
+                return 0;
+        }
+    }
 }
+
